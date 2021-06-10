@@ -1,0 +1,9 @@
+﻿# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Files built by MSBuild
+*.obj
+bin/
+obj/
+

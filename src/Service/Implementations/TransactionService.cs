@@ -33,7 +33,7 @@ namespace Service.Implementations
 
         public StatsModel GetStats(DateTime now)
         {
-            var transactions = _transactionRepository.GetTransactionsSince(now.AddSeconds(-1 * ServiceConstants.OffsetInSeconds));
+            var transactions = _transactionRepository.GetTransactionsSince(now.AddSeconds(-1 * ServiceConstants.TransactionTimeOffsetInSeconds));
             if (!transactions.Any())
             {
                 return new StatsModel();

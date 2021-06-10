@@ -13,13 +13,13 @@ namespace Service.Implementations
         public TransactionEntity ValidateTransaction(TransactionModel transactionModel, DateTime now)
         {
             if (!decimal.TryParse(transactionModel.Amount, NumberStyles.Any, CultureInfo.InvariantCulture, out var amount) ||
-                !DateTime.TryParseExact(transactionModel.Timestamp, "yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out var date) || 
-                date > now)
+                !DateTime.TryParseExact(transactionModel.Timestamp, ServiceConstants.DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, out var date) || 
+                date > now || amount == 0)
             {
                 throw new UnprocessableTransactionException();
             }
 
-            if (date < now.AddSeconds(-1 * ServiceConstants.OffsetInSeconds))
+            if (date < now.AddSeconds(-1 * ServiceConstants.TransactionTimeOffsetInSeconds))
             {
                 throw new LateReportedTransactionException();
             }

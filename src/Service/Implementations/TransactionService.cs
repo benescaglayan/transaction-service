@@ -41,10 +41,10 @@ namespace Service.Implementations
             
             return new StatsModel
             {
-                Sum = transactions.Sum(t => t.Amount).ToString(CultureInfo.InvariantCulture),
-                Avg = transactions.Average(t => t.Amount).ToString(CultureInfo.InvariantCulture),
-                Max = transactions.Max(t => t.Amount).ToString(CultureInfo.InvariantCulture),
-                Min = transactions.Min(t => t.Amount).ToString(CultureInfo.InvariantCulture),
+                Sum = transactions.Sum(t => t.Amount).ToString("F", CultureInfo.InvariantCulture),
+                Avg = transactions.Average(t => t.Amount).ToString("F", CultureInfo.InvariantCulture),
+                Max = transactions.Max(t => t.Amount).ToString("F", CultureInfo.InvariantCulture),
+                Min = transactions.Min(t => t.Amount).ToString("F", CultureInfo.InvariantCulture),
                 Count = transactions.Count
             };
         }

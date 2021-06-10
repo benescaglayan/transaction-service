@@ -39,7 +39,7 @@ namespace UnitTests
             Assert.Equal("0.0", stats.Min);
             Assert.Equal(0, stats.Count);
             
-            transactionRepository.Verify(m => m.GetTransactionsSince(It.Is<DateTime>(p => p == now.AddSeconds(-1 * ServiceConstants.OffsetInSeconds))), Times.Once);
+            transactionRepository.Verify(m => m.GetTransactionsSince(It.Is<DateTime>(p => p == now.AddSeconds(-1 * ServiceConstants.TransactionTimeOffsetInSeconds))), Times.Once);
         }
         
         [Fact]
@@ -74,7 +74,7 @@ namespace UnitTests
             Assert.Equal(Math.Min(firstTransaction.Amount, secondTransaction.Amount).ToString(CultureInfo.InvariantCulture), stats.Min);
             Assert.Equal(transactions.Count, stats.Count);
             
-            transactionRepository.Verify(m => m.GetTransactionsSince(It.Is<DateTime>(p => p == now.AddSeconds(-1 * ServiceConstants.OffsetInSeconds))), Times.Once);
+            transactionRepository.Verify(m => m.GetTransactionsSince(It.Is<DateTime>(p => p == now.AddSeconds(-1 * ServiceConstants.TransactionTimeOffsetInSeconds))), Times.Once);
         }
     }
 }

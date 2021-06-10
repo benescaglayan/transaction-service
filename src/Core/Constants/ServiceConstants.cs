@@ -2,6 +2,8 @@
 {
     public class ServiceConstants
     {
-        public const int OffsetInSeconds = 60;
+        public const int TransactionTimeOffsetInSeconds = 60;
+
+        public const string DateTimeFormat = "yyyy-MM-ddTHH:mm:ss.fffZ";
     }
 }

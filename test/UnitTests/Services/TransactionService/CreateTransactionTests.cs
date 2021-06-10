@@ -1,6 +1,4 @@
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 using AutoFixture;
 using AutoFixture.AutoMoq;
 using Core.Entities;
@@ -23,7 +21,7 @@ namespace UnitTests
         }
         
         [Fact]
-        public void CreateTransaction_Should_Add_Transaction_To_TransactionRepository()
+        public void CreateTransaction_Should_Validate_Add_Transaction_To_TransactionRepository()
         {
             var now = DateTime.UtcNow;
             var transactionModel = new TransactionModel

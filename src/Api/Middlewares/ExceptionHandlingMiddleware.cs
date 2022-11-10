@@ -25,7 +25,7 @@ namespace TransactionService.Middlewares
             {
                 if (e is UnprocessableTransactionException unprocessableTransactionException)
                 {
-                    httpContext.Response.StatusCode = (int) unprocessableTransactionException.ErrorStatusCode;
+                    httpContext.Response.StatusCode = (int) unprocessableTransactionException.ErrorStatusCode;   
                 }
                 else if (e is LateReportedTransactionException lateReportedTransactionException)
                 {
